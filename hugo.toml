@@ -1,0 +1,31 @@
+baseURL = "https://go-pcore.github.io/"
+title = "go-pcore"
+disableKinds = ["taxonomy", "term", "RSS", "sitemap", "404"]
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[[params.phases]]
+  name = "Type model"
+  status = "ready"
+  blurb = "The Pcore type calculus as Go types: scalar (`Integer[min,max]`, `Float`, `Numeric`, `String[min,max]`, `Boolean`, `Undef`, `Default`, `Scalar`, `ScalarData`, `Data`, `Any`), collection (`Array`, `Hash`, `Tuple`, `Struct`, `Collection`) and abstract (`Variant`, `Optional`, `NotUndef`, `Enum`, `Pattern`, `Regexp`, `Type`, `Sensitive`), plus `Timestamp` / `Timespan` / `Binary`."
+[[params.phases]]
+  name = "Type parser"
+  status = "ready"
+  blurb = "`Parse(string) (Type, error)` — a lexer + recursive-descent parser for the Pcore type grammar, matching Puppet's spelling. Every `Type.String()` is canonical and round-trips: `Parse(t.String())` reproduces `t`."
+[[params.phases]]
+  name = "Value model"
+  status = "ready"
+  blurb = "Plain Go scalars (`bool`, `int64`, `float64`, `string`), `[]Value` arrays and `*Hash`, plus wrappers — `Undef`, `Default`, `Sensitive` (redacts on `String()` and on serialization), `Regexp`, `Binary`, `Timestamp`, `Timespan`."
+[[params.phases]]
+  name = "Operations"
+  status = "ready"
+  blurb = "The load-bearing lattice: `IsInstance(t, v)` (value ∈ type), `IsAssignable(a, b)` (subtype), `Infer(v)` (a value's most specific type), `Generalize` and `CommonType`. The assignability arms are covered exhaustively by tests."
+[[params.phases]]
+  name = "Rich-data serialization"
+  status = "ready"
+  blurb = "`ToData` / `FromData` implement Pcore's rich-data protocol (the `__ptype` / `__pvalue` tagging): round-trippable through the data-only tree, with `Sensitive` redacted by design."
+[[params.phases]]
+  name = "Type aliases & TypeSet"
+  status = "planned"
+  blurb = "Named type aliases and `TypeSet` (grouped, referenceable type definitions) are staged for v0.2, along with `Timestamp` / `Timespan` range parameters and Pcore-exact `Timespan` string forms."
