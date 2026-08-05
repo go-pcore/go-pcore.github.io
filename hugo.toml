@@ -27,5 +27,5 @@ disableKinds = ["taxonomy", "term", "RSS", "sitemap", "404"]
   blurb = "`ToData` / `FromData` implement Pcore's rich-data protocol (the `__ptype` / `__pvalue` tagging): round-trippable through the data-only tree, with `Sensitive` redacted by design."
 [[params.phases]]
   name = "Type aliases & TypeSet"
-  status = "planned"
-  blurb = "Named type aliases and `TypeSet` (grouped, referenceable type definitions) are staged for v0.2, along with `Timestamp` / `Timespan` range parameters and Pcore-exact `Timespan` string forms."
+  status = "ready"
+  blurb = "Named, recursive type aliases and `TypeSet` (grouped, referenceable type definitions) via a `Loader` type environment, resolved transparently through `Parse` / `IsInstance` / `IsAssignable` / `Infer`. `Timestamp` / `Timespan` range parameters, `SemVer` / `SemVerRange`, `Init`, `Object`, `Runtime`, `URI`, `Iterable` / `Iterator`, `Error` and `Callable` are implemented too."
