@@ -41,15 +41,13 @@
   <div class="hero"><div class="wrap">
     <div>
       <h1 class="head">go-pcore</h1>
-      <p class="sub">Puppet's Pcore type system in pure Go — the type calculus, parser, value model and assignability lattice, no cgo.</p>
-      <div class="cta">
-        <a class="btn btn-primary" href="/docs/">{{ partial "icons/book.html" . }}Documentation</a>
-        <a class="btn btn-ghost" href="https://github.com/go-pcore/pcore">{{ partial "icons/github.html" . }}GitHub</a>
-      </div>
-      <div class="trust">{{ if not (partial "mantra-on.html" $) }}<span class="pill">pure Go · zero cgo</span>{{ end }}<span class="pill">Pcore type calculus</span><span class="pill">type parser</span><span class="pill">IsInstance</span><span class="pill">IsAssignable</span><span class="pill">Infer</span><span class="pill">rich-data ToData/FromData</span><span class="pill">round-trippable String()</span><span class="pill">100% coverage</span><span class="pill">6 arches</span></div>
+      <p class="sub">Puppet's Pcore type system in {{ if partial "mantra-on.html" . }}Go{{ else }}pure Go{{ end }} — the type calculus, parser, value model and assignability lattice, {{ if not (partial "mantra-on.html" $) }}no cgo{{ end }}.</p>
+      {{/* [[params.cta]] in hugo.toml: the kit renders the row */}}
+      {{ partial "cta.html" . }}
+      <div class="trust">{{ if not (partial "mantra-on.html" $) }}{{ if not (partial "mantra-on.html" $) }}<span class="pill">pure Go · zero cgo</span>{{ end }}{{ end }}<span class="pill">Pcore type calculus</span><span class="pill">type parser</span><span class="pill">IsInstance</span><span class="pill">IsAssignable</span><span class="pill">Infer</span><span class="pill">rich-data ToData/FromData</span><span class="pill">round-trippable String()</span><span class="pill">100% coverage</span><span class="pill">6 arches</span></div>
       <div class="legacy"><div class="badges">
       <a href="/docs/"><img alt="Documentation (MkDocs Material + mike)" src="https://img.shields.io/badge/docs-mkdocs--material-FBBF24"></a>
-      {{ if not (partial "mantra-on.html" $) }}<a href="https://github.com/go-pcore/pcore/blob/main/LICENSE"><img alt="License: BSD-3-Clause" src="https://img.shields.io/badge/license-BSD--3--Clause-blue"></a>{{ end }}
+      {{ if not (partial "mantra-on.html" $) }}{{ if not (partial "mantra-on.html" $) }}<a href="https://github.com/go-pcore/pcore/blob/main/LICENSE"><img alt="License: BSD-3-Clause" src="https://img.shields.io/badge/license-BSD--3--Clause-blue"></a>{{ end }}{{ end }}
       <a href="https://go.dev/dl/"><img alt="Go 1.26.4+" src="https://img.shields.io/badge/go-1.26.4%2B-00ADD8"></a>
       <a href="https://github.com/go-pcore/pcore"><img alt="Coverage 100%" src="https://img.shields.io/badge/coverage-100%25-1a7f37"></a>
     </div></div>
